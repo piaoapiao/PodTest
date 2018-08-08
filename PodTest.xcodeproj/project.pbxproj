@@ -13,6 +13,7 @@
 		4609C3FE211AE327002E9B22 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4609C3FD211AE327002E9B22 /* Assets.xcassets */; };
 		4609C401211AE327002E9B22 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4609C3FF211AE327002E9B22 /* LaunchScreen.storyboard */; };
 		4609C404211AE327002E9B22 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4609C403211AE327002E9B22 /* main.m */; };
+		EECB2B83CA85B9E16C286341 /* libPods-PodTest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA4DC4C72EB0B31EDB0144C4 /* libPods-PodTest.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,9 @@
 		4609C400211AE327002E9B22 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4609C402211AE327002E9B22 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4609C403211AE327002E9B22 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		91A1B4D7F16E998032F17B78 /* Pods-PodTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PodTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PodTest/Pods-PodTest.debug.xcconfig"; sourceTree = "<group>"; };
+		AA4DC4C72EB0B31EDB0144C4 /* libPods-PodTest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PodTest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA5AC2FED718F8D41D2437A1 /* Pods-PodTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PodTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-PodTest/Pods-PodTest.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +37,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EECB2B83CA85B9E16C286341 /* libPods-PodTest.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3052A9B92AFBA458844D0DA8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				91A1B4D7F16E998032F17B78 /* Pods-PodTest.debug.xcconfig */,
+				BA5AC2FED718F8D41D2437A1 /* Pods-PodTest.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		4609C3E8211AE323002E9B22 = {
 			isa = PBXGroup;
 			children = (
 				4609C3F3211AE323002E9B22 /* PodTest */,
 				4609C3F2211AE323002E9B22 /* Products */,
+				3052A9B92AFBA458844D0DA8 /* Pods */,
+				8BB37EBCBA38410637217835 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,6 +87,14 @@
 			path = PodTest;
 			sourceTree = "<group>";
 		};
+		8BB37EBCBA38410637217835 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AA4DC4C72EB0B31EDB0144C4 /* libPods-PodTest.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -78,6 +102,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4609C407211AE327002E9B22 /* Build configuration list for PBXNativeTarget "PodTest" */;
 			buildPhases = (
+				74A4D1C3BAF16E6F1A9CA3F0 /* [CP] Check Pods Manifest.lock */,
 				4609C3ED211AE323002E9B22 /* Sources */,
 				4609C3EE211AE323002E9B22 /* Frameworks */,
 				4609C3EF211AE323002E9B22 /* Resources */,
@@ -135,6 +160,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		74A4D1C3BAF16E6F1A9CA3F0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PodTest-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4609C3ED211AE323002E9B22 /* Sources */ = {
@@ -281,16 +327,14 @@
 		};
 		4609C408211AE327002E9B22 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 91A1B4D7F16E998032F17B78 /* Pods-PodTest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A2Q3FA8KGK;
 				INFOPLIST_FILE = PodTest/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.maizi.PodTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -299,16 +343,14 @@
 		};
 		4609C409211AE327002E9B22 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BA5AC2FED718F8D41D2437A1 /* Pods-PodTest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A2Q3FA8KGK;
 				INFOPLIST_FILE = PodTest/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.maizi.PodTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
